@@ -7,6 +7,7 @@ for col in (df.columns.values):
     location_gps.write(col + ";")
 location_gps.write("x_coord;y_coord\n")
 
+print("Getting all gps coordinates...")
 for i, row in df.iterrows():
 
     category = df.loc[i,'category']
@@ -18,7 +19,9 @@ for i, row in df.iterrows():
         info_str = category + ";" + building + ";" + address + ";" + str(g.osm['x']) + ";" + str(g.osm['y']) + "\n"
         location_gps.write(info_str)
     except:
-        print("invalid address")
+        print("There is an invalid address...skipping over...")
+
+print("Finished getting all gps coordinates...")
 
 location_gps.close()
     
