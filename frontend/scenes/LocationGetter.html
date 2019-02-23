@@ -13,6 +13,7 @@
         var x = document.getElementById("demo");
 
 
+
         function getLocation() {
             if (navigator.geolocation) {
                 navigator.geolocation.getCurrentPosition(displayPos, reqRejected);
@@ -30,7 +31,12 @@
             var addressinput = document.getElementById("addressinput");
             var box = document.createElement("input");
             box.type = "text";
+            var button = document.createElement("BUTTON")
+            button.type = "submit";
+            button.value = "Submit";
+            button.onclick = "submitAddr()"
             addressinput.appendChild(box);
+            addressinput.appendChild(button);
             var errormsg = document.getElementById("errormsg");
 
             switch (error.code) {
@@ -47,6 +53,12 @@
                     errormsg.innerHTML = "An unknown error occurred."
                     break;
             }
+        }
+        function submitAddr(){
+            var addr = document.getElementById("input").value;
+
+
+
         }
     </script>
 
