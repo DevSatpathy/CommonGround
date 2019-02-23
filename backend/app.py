@@ -29,4 +29,6 @@ def create_room():
     name = request.args.get('name')
     ip_address = request.args.get('ip_address')
     
-@app.route("/results")
+@app.route("/results/<code>")
+def output_data(code):
+	return rooms.find({"code": code})
