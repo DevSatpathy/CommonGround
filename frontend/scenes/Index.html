@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html>
   <head>
       <link rel="stylesheet" href="https://unpkg.com/leaflet@1.4.0/dist/leaflet.css" />
@@ -17,17 +18,18 @@
         margin: 0;
         padding: 0;
       }
-    </style>
+      </style>
   </head>
   <body BGCOLOR="FFFFFF">
       <script>
         var uni = L.map('mapid').setView([40.1164, -88.2434], 10);
-        pk.eyJ1IjoiYmoxOSIsImEiOiJjanNoeHF6dTQwd2VrNGF0N3VpYjBhNmVlIn0.DkwEg5jiRyQFqZ-Xe98o-Q
-        L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken=}', {
-        attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
-        maxZoom: 18,
-        id: 'mapbox.streets',
-        accessToken: 'your.mapbox.access.token'
-        }).addTo(mymap);
+        L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoiYmoxOSIsImEiOiJjanNoeHF6dTQwd2VrNGF0N3VpYjBhNmVlIn0.DkwEg5jiRyQFqZ-Xe98o-Q', {
+		    maxZoom: 18,
+		    attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, ' +
+			  '<a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, ' +
+			  'Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+		    id: 'mapbox.streets'
+	      }).addTo(mymap);
       </script>
   </body>
+</html>
