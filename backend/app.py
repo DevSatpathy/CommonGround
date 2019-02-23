@@ -13,8 +13,4 @@ rooms = db.rooms
 
 @app.route("/info", method=['PUT'])
 def add_to_database():
-    p = request.args.get('permissions')
-    if p == "yes":
-        curr_loc = aggregation.currentlocation.get_current_location()
-    else:
-        curr_loc = aggregation.currentlocation.get_current_location_from_address(request.args.get('address'))
+    
