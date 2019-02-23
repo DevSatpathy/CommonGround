@@ -23,3 +23,12 @@
     margin-right: auto;
 }
 
+#button-div {
+    display: flex;
+    justify-content: center;
+}
+
+button {
+    margin-left: 20px;
+    margin-right: 20px
+}
