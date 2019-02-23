@@ -1,26 +1,72 @@
 <html>
   <head>
      <link rel="stylesheet" href="https://unpkg.com/leaflet@1.4.0/dist/leaflet.css" integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA==" crossorigin=""/>
-    <script src="https://unpkg.com/leaflet@1.4.0/dist/leaflet.js" integrity="sha512-QVftwZFqvtRNi0ZyCtsznlKSWOStnDORoefr1enyq5mVL4tmKB3S/EnC3rRJcxCPavG10IcrVGSmPh6Qw5lwrg==" crossorigin=""></script>
+      <script src="https://unpkg.com/leaflet@1.4.0/dist/leaflet.js" integrity="sha512-QVftwZFqvtRNi0ZyCtsznlKSWOStnDORoefr1enyq5mVL4tmKB3S/EnC3rRJcxCPavG10IcrVGSmPh6Qw5lwrg==" crossorigin=""></script>
       <title>University Map</title>
       <meta name="viewport" content="initial-scale=1.0">
       <meta charset="utf-8">
       <style>
-      <span class="metadata-marker" style="display: none;" data-region_tag="css"></span>      /* Always set the map height explicitly to define the size of the div
-       * element that contains the map. */
+      /* <span class="metadata-marker" style="display: none;" data-region_tag="css"></span>      /*Always set the map height explicitly to define the size of the div
+       * element that contains the map.
          #map {
          height: 100%;
       }
-      /* Optional: Makes the sample page fill the window. */
+      /* Optional: Makes the sample page fill the window.
       html, body {
         height: 100%;
         margin: 0;
         padding: 0;
+      } */
+      h2 {
+      background-color: #F1F1F1;
+      text-align: center;
+      padding: 20px;
+      }
+      h1 {
+      text-align: center;
+      }
+      .paragraph {
+      width: 200px;
+      float: left;
+      }
+      .sidenav {
+      width: 130px;
+      position: fixed;
+      z-index: 1;
+      top: 20px;
+      left: 10px;
+      background: #eee;
+      overflow-x: hidden;
+      padding: 8px 0;
+      }
+      .table {
+      border-style: dashed;
+      border-width: 3px;
+      border-left-width: 10px;
+      border-right-width: 10px;
+      border-color: red;
       }
       </style>
   </head>
   <body BGCOLOR="FFFFFF">
-      <div id="mapid" style="width: 600px; height: 400px;"></div>
+      <div id = "roompage">
+          <h1 id = "sitename">Room: XJIHSG</h1>
+      </div>
+      <div class="paragraph">
+        <h2>Users:</h2>
+        <table class="table">
+            <tr>
+              <td>Jill</td>
+            </tr>
+            <tr>
+              <td>Eve</td>
+            </tr>
+            <tr>
+              <td>John</td>
+            </tr>
+          </table>
+      </div>
+      <div id="mapid" style="width: 800px; height: 400px;"></div>
       <script>
         /* Var x and Var y serve as place holders until json works */  
         var x = 40;
@@ -42,5 +88,8 @@
           .bindPopup("Best place to meet");
 
       </script>
+      <div>
+        <h1>The best place to meet is: </h1>
+      </div>
   </body>
 </html>
