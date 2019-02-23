@@ -29,3 +29,4 @@ def create_room():
     name = request.args.get('name')
     ip_address = request.args.get('ip_address')
     
+@app.route("/results")
