@@ -2,6 +2,11 @@
     font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
+#overall {
+    border-style: dashed;
+    padding: 10px
+}
+
 #sitenameholder {
     display: block;
     margin-left: auto;
@@ -17,3 +22,4 @@
     margin-left: auto;
     margin-right: auto;
 }
+
