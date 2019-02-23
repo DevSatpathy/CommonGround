@@ -18,7 +18,22 @@
             </p>
 
             <div id = "button-div">
-                <button id = "create-room-btn", class="main-button">Create Room</button>
+                <button id = "create-room-btn", class="main-button", onclick="myFunction()">Create Room</button>
+
+                <script>
+                        function myFunction() {
+                          var txt;
+                          var person = prompt("Please enter your name:");
+                          var person = prompt("Please enter your address:");
+                          if (person == null || person == "") {
+                            txt = "User cancelled the prompt.";
+                          } else {
+                            txt = "Hello " + person + "! How are you today?";
+                          }
+                          document.getElementById("demo").innerHTML = txt;
+                        }
+                        </script>
+
                 <button id = "join-room-btn", class="main-button">Join Room</button>
             </div>
             <div id="googleMap" style="width:100%;height:400px;" >
