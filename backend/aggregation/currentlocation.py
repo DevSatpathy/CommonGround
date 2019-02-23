@@ -1,3 +1,7 @@
 import geocoder
-g = geocoder.ip('me')
-print(g.latlng)
+
+def getCurrentLocation():
+    g = geocoder.ip('me')
+    return g.latlng
+
+print(getCurrentLocation())

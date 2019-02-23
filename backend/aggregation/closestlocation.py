@@ -1,5 +1,6 @@
 import pandas as pd
 import math
+from currentlocation import *
 
 df = pd.read_csv('data/location_gps.csv', sep =';', error_bad_lines=False)
 
@@ -12,4 +13,5 @@ def distance_from_user(name, user_x, user_y):
     dist = math.sqrt((user_x - x)**2 + (user_y - y)**2)
     return dist
     
-print(distance_from_user('Cocomero', 0, 0))
+user_location = getCurrentLocation()
+print(distance_from_user('Cocomero', user_location[0], user_location[1]))
