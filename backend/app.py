@@ -1,16 +1,31 @@
 from flask import Flask
 from flask import request
-from pymongo import MongoClient
 import pymongo
+from pymongo import MongoClient
 from aggregation.currentlocation import *
 app = Flask(__name__)
 
-# Connect to the database
+# Connect to the client
 client = MongoClient('localhost', 27017)
+
+# Connect to the database
+db = client.db
 
 # The collection that we will edit
 rooms = db.rooms
 
-@app.route("/info", method=['PUT'])
-def add_to_database():
+@app.route("/joinroom")
+def join_room():
+    name = request.args.get('name')
+    long = request.args.get('longitude')
+    lat = request.args.get('latitude')
+    code = request.args.get('code')
+    ip_address = request.args.get('ip_address')
+    info = { "ip": ip_address, "longitude": long, "latitude": lat }
+    rooms.insert_one(info)
+
+@app.route("/createroom")
+def create_room():
+    name = request.args.get('name')
+    ip_address = request.args.get('ip_address')
     
