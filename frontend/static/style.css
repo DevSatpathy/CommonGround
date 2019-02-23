@@ -1,0 +1,19 @@
+* {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+#sitenameholder {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#sitename {
+    text-align: center
+}
+
+#locationsender {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
