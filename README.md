@@ -1,9 +1,9 @@
 # CommonGround
 Where2Meet, When2Meet.
 
-# Dependicies
-pip install pandas, 
-pip install geocoder
+# Prereqs
+- Python v2.7.8+
+- pip
 
 # Run all dependecy commands:
 pip install -r requirements.txt
