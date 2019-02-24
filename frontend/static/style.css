@@ -4,7 +4,7 @@
 
 #overall {
     border-style: dashed;
-    padding: 10px
+    padding: 15px
 }
 
 #sitenameholder {
@@ -23,3 +23,12 @@
     margin-right: auto;
 }
 
+#button-div {
+    display: flex;
+    justify-content: center;
+}
+
+button {
+    margin-left: 20px;
+    margin-right: 20px
+}
