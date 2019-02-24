@@ -16,7 +16,7 @@ L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=p
 //   document.getElementById("myList").appendChild(node);
 // }
 
-var user = JSON.parse(users);
+var user = JSON.parse("users.json");
 var x_coord = parseFloat(user.x);
 var y_coord = parseFloat(user.y);
 L.marker([x_coord, y_coord]).addTo(uni)

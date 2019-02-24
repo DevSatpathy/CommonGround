@@ -19,11 +19,12 @@ def distance_from_user(name, user_x, user_y):
 
 def get_midpoint(user_coords): # user_coords is a list of tuples storing all x, y gps coordinates
     num_users = len(user_coords)
+    print("num user: " + str(num_users))
     y_sum = 0
     x_sum = 0
     for i in range(num_users):
-        x_sum += user_coords[i][0]
-        y_sum += user_coords[i][0]
+        x_sum += float(user_coords[i][0])
+        y_sum += float(user_coords[i][0])
     return ((x_sum / num_users), (y_sum / num_users))
 
 def get_closest_building(x_coord, y_coord):
