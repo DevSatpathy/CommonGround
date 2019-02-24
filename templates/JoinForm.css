@@ -1,9 +1,16 @@
 
 body {
     border-style: dashed;
+    height: 100%; 
     padding: 10px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    overflow: auto;
 }
-
+git
 .loc-info {
     text-align: center;
 }
