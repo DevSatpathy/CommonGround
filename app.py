@@ -134,7 +134,8 @@ def createroom():
         text.close()
         return redirect(url_for('results', location=meeting_building[0]))
     else:
-        return render_template('CreateRoom.html')
+        code = room['code']
+        return render_template('CreateRoom.html', code = code)
 
 
 @app.route("/results/<location>")
