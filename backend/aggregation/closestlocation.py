@@ -8,9 +8,12 @@ df = pd.read_csv('backend/aggregation/data/location_gps.csv', sep =';', error_ba
 d =  df.set_index('name').to_dict(orient = 'series')
 
 def distance_from_user(name, user_x, user_y):
-    data = d.get(name)
-    x = data.get('x_coord')
-    y = data.get('y_coord')
+    # data = d.get(name)
+    # x = data.get('x_coord')
+    # y = data.get('y_coord')
+    # print(df)
+    x = float(df[df['name']==name]['x_coord'])
+    y = float(df[df['name']==name]['y_coord'])
     dist = math.sqrt((user_x - x)**2 + (user_y - y)**2)
     return dist
 
@@ -26,12 +29,16 @@ def get_midpoint(user_coords): # user_coords is a list of tuples storing all x, 
 def get_closest_building(x_coord, y_coord):
     min_dist = float("inf")
     name = ""
+    x = 0
+    y = 0
     for n in df['name']:
-        dist = distance_from_user(n, x_coord, y_coord)
+        dist = distance_from_user(n, float(x_coord), float(y_coord))
         if (dist < min_dist):
             min_dist = dist
             name = n
-    return name
+            x = float(df[df['name']==n]['x_coord'])
+            y = float(df[df['name']==n]['y_coord'])
+    return [name, x, y]
 
 def get_random_code():
     chars = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXTZabcdefghiklmnopqrstuvwxyz"
