@@ -7,6 +7,13 @@
         <meta charset="utf-8">
         <link rel="stylesheet" type="text/css" href="../static/style.css">
     </head>
+    <head>
+        <link rel="stylesheet" href="https://unpkg.com/leaflet@1.4.0/dist/leaflet.css" integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA==" crossorigin=""/>
+        <script src="https://unpkg.com/leaflet@1.4.0/dist/leaflet.js" integrity="sha512-QVftwZFqvtRNi0ZyCtsznlKSWOStnDORoefr1enyq5mVL4tmKB3S/EnC3rRJcxCPavG10IcrVGSmPh6Qw5lwrg==" crossorigin=""></script>
+        <title>University Map</title>
+        <meta name="viewport" content="initial-scale=1.0">
+        <meta charset="utf-8">
+    </head>
     <body id = "overall" style="border-style: dashed">
         <div id = "sitenameholder">
             <h1 id = "sitename">Common Ground</h1>
@@ -42,8 +49,6 @@
         </div>
         <script>
         /* Var x and Var y serve as place holders until json works */  
-        var x = 40;
-        var y = -88;
         var standardMap = L.map('googleMap').setView([40.1164, -88.2434], 13);
         L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoiYmoxOSIsImEiOiJjanNoeHF6dTQwd2VrNGF0N3VpYjBhNmVlIn0.DkwEg5jiRyQFqZ-Xe98o-Q', {
 		    maxZoom: 18,
