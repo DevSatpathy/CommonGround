@@ -15,5 +15,6 @@ Where2Meet, When2Meet.
 2. `pip install -r requirements.txt`
 3. `set FLASK_APP=app.py`
 4. `export FLASK_APP=app.py`
+5. brew services start mongodb
 5. `flask run`
 6. in your browser, open localhost:5000
