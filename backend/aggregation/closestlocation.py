@@ -1,5 +1,6 @@
 import pandas as pd
 import math
+import random
 # from currentlocation import *
 
 df = pd.read_csv('backend/aggregation/data/location_gps.csv', sep =';', error_bad_lines=False)
@@ -31,6 +32,16 @@ def get_closest_building(x_coord, y_coord):
             min_dist = dist
             name = n
     return name
+
+def get_random_code():
+    chars = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXTZabcdefghiklmnopqrstuvwxyz"
+    string_length = 5
+    randomstring = ''
+    for i in range(6):
+        rnum = random.randint(0,len(chars))
+        randomstring += chars[rnum:rnum+1]
+    
+    return randomstring
 
 # get midpoint for list of coordinates
 # compare the midpoint with all buildings (in location_gps.csv)
