@@ -2,6 +2,7 @@ var latitude = document.getElementById("latitude");
 
 var longitude = document.getElementById("longitude");
 
+
 function getLocation() {
     if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(displayPos, reqRejected);
