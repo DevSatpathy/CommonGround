@@ -4,19 +4,22 @@ body {
     border-left-width: 3px;
     border-right-width: 3px;
     }
-    h2 {
+h2 {
     background-color: #F1F1F1;
     text-align: center;
     padding: 20px;
-    }
-    h1 {
+}
+
+h1 {
     text-align: center;
-    }
-    .paragraph {
+}
+
+.paragraph {
     width: 200px;
     float: left;
-    }
-    .sidenav {
+}
+
+.sidenav {
     width: 130px;
     position: fixed;
     z-index: 1;
@@ -25,11 +28,12 @@ body {
     background: #eee;
     overflow-x: hidden;
     padding: 8px 0;
-    }
-    .table {
+}
+
+.table {
     border-style: solid;
     border-width: 3px;
     border-left-width: 3px;
     border-right-width: 3px;
     border-color: black;
-    }
+}

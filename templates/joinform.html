@@ -17,6 +17,7 @@
         function getLocation() {
             if (navigator.geolocation) {
                 navigator.geolocation.getCurrentPosition(displayPos, reqRejected);
+
             } else {
                 x.innerHTML = "Geolocation is not supported by this browser/";
             }
@@ -25,11 +26,9 @@
         function displayPos(position) {
             x.innerHTML = "Latitude: " + position.coords.latitude +
                 "<br>Longitude: " + position.coords.longitude;
-                x_user = position.coords.latitude;
-                y_user = position.coords.longitude;
                 document.getElementById('xcoord').value = position.coords.latitude;
                 document.getElementById('ycoord').value = position.coords.longitude;
-                // document.getElementById('form').submit();
+                document.getElementById('form').submit();
         }
         function reqRejected(error) {
             
@@ -72,12 +71,12 @@
 <body onload="getLocation()">
     <p id = "errormsg"></p>
     <div id = "addressinput"></div>
-    <form action = "", methods = "post", id = "form">
-        <input type ="text" name = "name" id ='name'><br>
-        <input type ="text" name = "xcoord" id = 'xcoord'><br>
-        <input type ="text" name = "ycoord" id ='ycoord'><br>
-        <input type = "submit" value = "Submit">
-    </form>
+    <form action="http://localhost:5000/JoinRoom.html" method="POST" id = 'form'>
+            <input type="text" name="name" id='name'><br>
+            <input type="text" name="xcoord" id='xcoord'><br>
+            <input type="text" name="ycoord" id='ycoord'><br>
+            <input type="submit" value="Submit">
+        </form>
 
 </body>
 
