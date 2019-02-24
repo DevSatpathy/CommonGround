@@ -3,7 +3,7 @@
         <head>
             <link rel="shortcut icon" href="../frontend/static/favicon.ico">
     
-            <title>CommonGround</title>
+            <title>Common Ground</title>
             <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
             <meta charset="utf-8">
             <link rel="stylesheet" type="text/css" href="../frontend/static/favicon.ico">
@@ -50,11 +50,11 @@
             </div>
      
             <div style="text-align:center">
-                <button type="button" class="btn", onclick="myFunction()">Create Room</button>
+                <a href = "createroom"></a><button type="button" class="btn">Create Room</button>
                 <a href = "joinroom"><button type="button" class="btn">Join Room</button></a>
             </div>
 
-            <div id="googleMap"></div>
+            <div id="googleMap" style="width:100%;height:400px;" ></div>
 
         <script>
         /* Var x and Var y serve as place holders until json works */  
@@ -68,11 +68,4 @@
 	      }).addTo(standardMap);
         </script>
     </body>
-
-    <body onload="getLocation()">
-        <p id = "errormsg"></p>
-        <div id = "addressinput"></div>
-    
-    </body>
-
 </html>
