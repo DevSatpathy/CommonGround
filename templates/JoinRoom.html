@@ -13,23 +13,27 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-
-    <p id="latitude"></p>
-    <p id="longitude"></p>
-
-    <script src = 'LocationRender.js'></script>
 </head>
 
 <body onload="getLocation()">
-    <p id = "errormsg"></p>
+    <h1 style= "text-align: center">Join A Room</h1>
+
+    <p id="latitude" class = "loc-info"></p>
+
+    <p id="longitude" class = "loc-info"></p>
+
+    <p id = "errormsg" align = "center"></p>
+
+    <script src = 'LocationRender.js'></script>
+
     <div id = "addressinput"></div>
-    <form action = "", methods = "post", id = "form">
+        <form action = "", methods = "post", id = "form">
             <div class="row">
                 <div class="col-sm-4">
                     <label>Name:</label>
                 </div>
                 <div class="col-sm-4">
-                    <input type="text" name = "name" id ='name' size="10">
+                    <input type="text" name = "name" id ='name'>
                 </div>
             </div>
 
@@ -38,21 +42,24 @@
                     <label>Latitude:</label>
                 </div>
                 <div class="col-sm-4">
-                    <input type="text" name = "xcoord" id ='xcoord' size="10">
+                    <input type="text" name = "xcoord" id ='xcoord'>
                 </div>
             </div>
 
             <div class="row">
-                    <div class="col-sm-4">
-                        <label>Longitude:</label>
-                    </div>
-                    <div class="col-sm-4">
-                        <input type="text" name = "ycoord" id ='ycoord'size="10" >
-                    </div>
+                <div class="col-sm-4">
+                    <label>Longitude:</label>
                 </div>
-        
-        <button type="submit" class="btn btn-primary">Submit</button>
-    </form>
+                <div class="col-sm-4">
+                    <input type="text" name = "ycoord" id ='ycoord' >
+                </div>
+            </div>
+        </form>
+    </div>
+
+    <div id = "submit-btn-div">
+        <button type="submit" class="btn btn-primary" id = "submit-btn">Submit</button>
+    </div>
 
 </body>
 

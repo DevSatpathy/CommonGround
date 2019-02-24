@@ -24,18 +24,18 @@ function displayPos(position) {
     // document.getElementById('form').submit();
 }
 
-function reqRejected(error) {
-    var addressinput = document.getElementById("addressinput");
-    var box = document.createElement("input");
-    box.type = "text";
-    var button = document.createElement("BUTTON")
-    button.type = "submit";
-    button.value = "Submit";
-    button.onclick = "submitAddr()"
-    addressinput.appendChild(box);
-    addressinput.appendChild(button);
+function reqRejected(error, button) {
+     var addressinput = document.getElementById("addressinput");
+    // var box = document.createElement("input");
+    // box.type = "text";
+    // var button = document.createElement("BUTTON")
+    // button.type = "submit";
+    // button.value = "Submit";
+    // button.onclick = "submitAddr()"
+    // addressinput.appendChild(box);
+    // addressinput.appendChild(button);
     var errormsg = document.getElementById("errormsg");
-
+    
     switch (error.code) {
         case error.PERMISSION_DENIED:
             errormsg.innerHTML = "User denied the request for Geolocation."

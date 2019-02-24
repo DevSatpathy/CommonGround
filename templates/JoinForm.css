@@ -1,8 +1,23 @@
-.form-control {
-    width: 100 px;
+
+body {
+    border-style: dashed;
+    padding: 10px;
+}
+
+.loc-info {
+    text-align: center;
 }
 
 form { 
     margin: 0 auto; 
     width:250px;
+}
+
+#submit-btn-div {
+    margin-top: 10px;
+    text-align: center;
+}
+
+.errormsg {
+    text-align: center;
 }
