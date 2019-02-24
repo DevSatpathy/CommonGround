@@ -1,9 +1,9 @@
 name;category;address;x_coord;y_coord
-library;Grainger Engineering Library;1301 W Springfield Ave, Urbana, IL 61801;-88.2268581287989;40.11247515
+library;Grainger Engineering Library;1301 W Springfield Ave, Urbana, IL 61801;-88.2268581288;40.11247515
 library;Undergraduate Library;1402 W Gregory Dr, Urbana, IL 61801;-88.2271776;40.1047306
-library;Main Library;1408 W Gregory Dr, Urbana, IL 61801;-88.2289901451319;40.10471855
-library;Residence Hall Libraries - Ikenberry;301 E Gregory Dr, Champaign, IL 61820;-88.2358177419355;40.1040230322581
-public_shop;Cocomero;709 S Wright St, Champaign, IL 61820;-88.2289946842296;40.1101495962939
-public_shop;BrewLab Coffee;630 S 5th St, Champaign, IL 61820;-88.4531551799025;39.9426266483264
+library;Main Library;1408 W Gregory Dr, Urbana, IL 61801;-88.2289901451;40.10471855
+library;Residence Hall Libraries - Ikenberry;301 E Gregory Dr, Champaign, IL 61820;-88.2358177419;40.1040230323
+public_shop;Cocomero;709 S Wright St, Champaign, IL 61820;-88.2289946842;40.1101495963
+public_shop;BrewLab Coffee;630 S 5th St, Champaign, IL 61820;-88.4531551799;39.9426266483
 public_shop;Caffe Bene;524 E Green St, Champaign, IL 61820;-88.2309368;40.1104252
-library;Law Library;504 E Pennsylvania Ave, Champaign, IL 61820;-88.2021881428571;40.1008402040816
+library;Law Library;504 E Pennsylvania Ave, Champaign, IL 61820;-88.2021881429;40.1008402041

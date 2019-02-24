@@ -2,8 +2,9 @@ from flask import Flask, render_template
 from flask import request
 import pymongo
 from pymongo import MongoClient
-from aggregation.currentlocation import *
+from backend.aggregation.currentlocation import *
 app = Flask(__name__)
+#app._static_folder = './templates'
 
 # Connect to the client
 client = MongoClient('localhost', 27017)
@@ -14,7 +15,7 @@ db = client.commonground
 # The collection that we will edit
 rooms = db.rooms
 
-@app.route('/')
+@app.route("/")
 def main_page():
 	return render_template('MainPage.html')
 
