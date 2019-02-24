@@ -1,100 +1,99 @@
-<html>
-  <head>
-     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.4.0/dist/leaflet.css" integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA==" crossorigin=""/>
-      <script src="https://unpkg.com/leaflet@1.4.0/dist/leaflet.js" integrity="sha512-QVftwZFqvtRNi0ZyCtsznlKSWOStnDORoefr1enyq5mVL4tmKB3S/EnC3rRJcxCPavG10IcrVGSmPh6Qw5lwrg==" crossorigin=""></script>
-      <title>University Map</title>
-      <meta name="viewport" content="initial-scale=1.0">
-      <meta charset="utf-8">
-      <style>
-      /* <span class="metadata-marker" style="display: none;" data-region_tag="css"></span>      /*Always set the map height explicitly to define the size of the div
-       * element that contains the map.
-         #map {
-         height: 100%;
-      }
-      /* Optional: Makes the sample page fill the window.
-      html, body {
-        height: 100%;
-        margin: 0;
-        padding: 0;
-      } */
-      body {
-      border-style: dashed;
-      border-width: 3px;
-      border-left-width: 3px;
-      border-right-width: 3px;
-      }
-      h2 {
-      background-color: #F1F1F1;
-      text-align: center;
-      padding: 20px;
-      }
-      h1 {
-      text-align: center;
-      }
-      .paragraph {
-      width: 200px;
-      float: left;
-      }
-      .sidenav {
-      width: 130px;
-      position: fixed;
-      z-index: 1;
-      top: 20px;
-      left: 10px;
-      background: #eee;
-      overflow-x: hidden;
-      padding: 8px 0;
-      }
-      .table {
-      border-style: solid;
-      border-width: 3px;
-      border-left-width: 3px;
-      border-right-width: 3px;
-      border-color: black;
-      }
-      </style>
-      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-      <script>
-      $(document).ready(function(){
-        $("#btn2").click(function(){
-          $("ol").append("<li>NAME</li>");
-        });
-      });
-      </script>
-  </head>
-  <body BGCOLOR="FFFFFF">
-      <div id = "roompage">
-          <h1 id = "sitename">Room: XJIHSG</h1>
-      </div>
-      <div class="paragraph">
-        <h2>Users:</h2>
-        <ol></ol>
-        <button id="btn2">New player added</button>
-      </div>
-      <div id="mapid" style="width: 800px; height: 400px;"></div>
-      <script>
-        /* Var x and Var y serve as place holders until json works */  
-        var x = 40;
-        var y = -88;
-        var uni = L.map('mapid').setView([40.1164, -88.2434], 13);
-        L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoiYmoxOSIsImEiOiJjanNoeHF6dTQwd2VrNGF0N3VpYjBhNmVlIn0.DkwEg5jiRyQFqZ-Xe98o-Q', {
-		    maxZoom: 18,
-		    attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, ' +
-			  '<a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, ' +
-			  'Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
-		    id: 'mapbox.streets'
-	      }).addTo(uni);
-        
-        L.marker([40.1101, -88.2290]).addTo(uni)
-		    .bindPopup("Meeting Placeholder").openPopup();
-        L.marker([40.1201, -88.2090]).addTo(uni)
-		  .bindPopup("Person Placeholder").openPopup();
-        L.marker([x, y]).addTo(uni)
-          .bindPopup("Best place to meet");
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
 
-      </script>
-      <div>
-        <h1>The best place to meet is: </h1>
-      </div>
-  </body>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.4.0/dist/leaflet.css" integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA==" crossorigin=""/>
+    <script src="https://unpkg.com/leaflet@1.4.0/dist/leaflet.js" integrity="sha512-QVftwZFqvtRNi0ZyCtsznlKSWOStnDORoefr1enyq5mVL4tmKB3S/EnC3rRJcxCPavG10IcrVGSmPh6Qw5lwrg==" crossorigin=""></script>
+    <title>University Map</title>
+    <meta name="viewport" content="initial-scale=1.0">
+    <meta charset="utf-8">
+
+    <style>
+        body {
+        border-style: dashed;
+        border-width: 3px;
+        border-left-width: 3px;
+        border-right-width: 3px;
+        }
+        h2 {
+        background-color: #F1F1F1;
+        text-align: center;
+        padding: 20px;
+        }
+        h1 {
+        text-align: center;
+        }
+        .paragraph {
+        width: 200px;
+        float: left;
+        }
+        .sidenav {
+        width: 130px;
+        position: fixed;
+        z-index: 1;
+        top: 20px;
+        left: 10px;
+        background: #eee;
+        overflow-x: hidden;
+        padding: 8px 0;
+        }
+        .table {
+        border-style: solid;
+        border-width: 3px;
+        border-left-width: 3px;
+        border-right-width: 3px;
+        border-color: black;
+        }
+        </style>
+</head>
+<body>
+    <div class="jumbotron text-center">
+        <h1>Meeting Room</h1>
+        <p>Code: NSKDIE</p> 
+    </div>
+    <div class="paragraph">
+      <h2>Users:</h2>
+      <ol></ol>
+      <button id="btn2">New player added</button>
+    </div>
+    <div id="mapid" style="width: 800px; height: 400px;"></div>
+    <script>
+      /* Var x and Var y serve as place holders until json works */  
+      var x = 40;
+      var y = -88;
+      var uni = L.map('mapid').setView([40.1164, -88.2434], 13);
+      L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoiYmoxOSIsImEiOiJjanNoeHF6dTQwd2VrNGF0N3VpYjBhNmVlIn0.DkwEg5jiRyQFqZ-Xe98o-Q', {
+          maxZoom: 18,
+          attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, ' +
+            '<a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, ' +
+            'Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+          id: 'mapbox.streets'
+        }).addTo(uni);
+      
+      L.marker([40.1101, -88.2290]).addTo(uni)
+          .bindPopup("Meeting Placeholder").openPopup();
+      L.marker([40.1201, -88.2090]).addTo(uni)
+        .bindPopup("Person Placeholder").openPopup();
+      L.marker([x, y]).addTo(uni)
+        .bindPopup("Best place to meet");
+
+    </script>
+    <!-- <div>
+      <h1>The best place to meet is: </h1>
+    </div> -->
+
+    <div class="col-sm-4">
+        <h2>London</h2>
+          <p>London is the most populous city in the United Kingdom,
+        with a metropolitan area of over 13 million inhabitants.</p>
+    </div>
+
+</body>
 </html>
