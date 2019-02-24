@@ -70,7 +70,7 @@ def joinroom():
         meeting_building = get_closest_building(meeting_location_x, meeting_location_y)
         text.close()
 
-        return redirect(url_for('results', location=meeting_building[0]))
+        return redirect(url_for('results', location=meeting_building[0]), code = code)
     else:
         return render_template('joinform.html')
     
@@ -110,12 +110,12 @@ def createroom():
         with open('users.json', 'w') as outfile:  
             json.dump(rooms, outfile)
         text.close()
-        return redirect(url_for('results', location=meeting_building[0]))
+        return redirect(url_for('results', location=meeting_building[0]), code = code)
     else:
         return render_template('CreateRoom.html')
 
 
 @app.route("/results/<location>")
-def results(location):
+def results(location, code):
     
-    return render_template('Result.html', location = location)
+    return render_template('Result.html', location = location, code = code)

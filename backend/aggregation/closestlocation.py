@@ -1,6 +1,8 @@
 import pandas as pd
 import math
 import random
+from datetime import datetime
+random.seed(datetime.now())
 # from currentlocation import *
 
 df = pd.read_csv('backend/aggregation/data/location_gps.csv', sep =';', error_bad_lines=False)
