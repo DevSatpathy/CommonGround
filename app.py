@@ -30,54 +30,31 @@ def joinroom():
         lon = result['ycoord']
         code = result['code']
         ip_address = 0
-        
-        # current_users = rooms.find_one({ 'code':code}, {'_id': 0, 'name': 0, 'users': 1, 'meeting_loc': 0})
-        # for i in range(len(current_users)):
-        #     if current_users[i]['ip_address'] == ip_address:
-        #         current_users[i] = { "ip": ip_address,
-        #                 "name": name,
-        #                 "x": lat,
-        #                 "y": lon
-        #                 }
-        #     else:
-        #         current_users.append({ "ip": ip_address,
-        #                 "name": name,
-        #                 "x": lat,
-        #                 "y": lon
-        #                 })
-        
-        # rooms.update_one({"code":code},{ "$set":{"users": current_users}})
-        # current_users = rooms.find_one({ 'code':code}, {'_id': 0, 'name': 0, 'users': 1, 'meeting_loc': 0})
-        # coords = []
-        # for i in range(current_users):
-        #     coords.append((current_users[i]['x'],current_users[i]['y']))
-        # meeting_location = get_midpoint(coords)
-        # meeting_location_x = meeting_location[0]
-        # meeting_location_y = meeting_location[1]
-        # meeting_building = get_closest_building(meeting_location_x, meeting_location_y)
-        # rooms.update_one({"code":code},{ "$set":{"meeting_loc": {"name": meeting_building, "x": meeting_location_x, "y": meeting_location_y}}})
-        return redirect(url_for('results', code=3))
-    else:
-        return render_template('joinform.html')
-    
-@app.route("/createroom", methods=['POST', 'GET'])
-def createroom():
-    print('bye')
-    if request.method == 'POST':
-        print(85)
-        result  = request.form
-        name = result['name']
-        lat = result['xcoord']
-        lon = result['ycoord']
-        print('hello')
-        code = get_random_code()
-        print('hello')
-        meeting_building = get_closest_building(lat, lon)
-        print(meeting_building[2])
 
-        ip_address = 0
-        db.rooms.insert(
-            {
+        text = open('users.json', 'r')
+        current_users = json.loads(text.read())
+        
+        # for (i in range(len(rooms))):
+
+
+        
+        # current_users = rooms.find_one({ 'code':code}, {'_id': 0, 'name': 0, 'users': 1, 'meeting_loc': 0})
+        for i in range(len(current_users)):
+            if current_users[i]['ip_address'] == ip_address:
+                current_users[i] = { "ip": ip_address,
+                        "name": name,
+                        "x": lat,
+                        "y": lon
+                        }
+            else:
+                current_users.append({ "ip": ip_address,
+                        "name": name,
+                        "x": lat,
+                        "y": lon
+                        })
+        
+
+        user = {
                 "name": name,
                 "code": code,
                 "users": [{"name": name, "x": lat, "y": lon, "ip": ip_address}],
@@ -86,18 +63,74 @@ def createroom():
                     "x": meeting_building[1],
                     "y": meeting_building[2]}
             }
-        )
-        print('asdfasdf')
-        return redirect(url_for('results', code=code))
+        # rooms.update_one({"code":code},{ "$set":{"users": current_users}})
+        # current_users = rooms.find_one({ 'code':code}, {'_id': 0, 'name': 0, 'users': 1, 'meeting_loc': 0})
+        coords = []
+        for i in range(current_users):
+            coords.append((current_users[i]['x'],current_users[i]['y']))
+        meeting_location = get_midpoint(coords)
+        meeting_location_x = meeting_location[0]
+        meeting_location_y = meeting_location[1]
+        meeting_building = get_closest_building(meeting_location_x, meeting_location_y)
+        # rooms.update_one({"code":code},{ "$set":{"meeting_loc": {"name": meeting_building, "x": meeting_location_x, "y": meeting_location_y}}})
+        user = {{"code":code},{ "$set":{"users": current_users}},{"code":code},{ "$set":{"meeting_loc": {"name": meeting_building, "x": meeting_location_x, "y": meeting_location_y}}}}
+        return redirect(url_for('results', user=user))
+    else:
+        return render_template('joinform.html')
+    
+@app.route("/createroom", methods=['POST', 'GET'])
+def createroom():
+    print('bye')
+    if request.method == 'POST':
+        result  = request.form
+        name = result['name']
+        lat = result['xcoord']
+        lon = result['ycoord']
+        code = get_random_code()
+        meeting_building = get_closest_building(lat, lon)
+        ip_address = 0
+        # db.rooms.insert_one(
+        #     {
+        #         "name": name,
+        #         "code": code,
+        #         "users": [{"name": name, "x": lat, "y": lon, "ip": ip_address}],
+        #         "meeting_location": {
+        #             "name": meeting_building[0],
+        #             "x": meeting_building[1],
+        #             "y": meeting_building[2]}
+        #     }
+        # )
+        room = {
+                "name": name,
+                "code": code,
+                "users": [{"name": name, "x": lat, "y": lon, "ip": ip_address}],
+                "meeting_location": {
+                    "name": meeting_building[0],
+                    "x": meeting_building[1],
+                    "y": meeting_building[2]}
+            }
+        print(room)
+        return redirect(url_for('results', user=room))
     else:
         return render_template('CreateRoom.html')
 
 
-@app.route("/results/<code>")
-def results(code):
+@app.route("/results/<user>")
+def results(user):
+    f = open('users.json', 'r')
+    s = f.read()
+    s = s[:-1]
+    print("hello")
+    print(s)
+    # f = json.loads(s)
+    # f = f.decode('utf-8').replace('\0', '')
+    # f.append(user)
+    s += user
+    s += ']'
+    
 	# return rooms.find({"code": code})
-    data = rooms.find({'code': code})
-    dat = str(data)
+    # data = rooms.find({'code': code})
+    # dat = str(data)
     with open('users.json', 'w') as outfile:  
-        json.dump(dat, outfile)
+        json.dump(s, outfile)
     return render_template('Result.html')
