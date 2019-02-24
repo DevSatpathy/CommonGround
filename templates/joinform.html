@@ -11,9 +11,6 @@
 
     <script>
         var x = document.getElementById("demo");
-
-
-
         function getLocation() {
             if (navigator.geolocation) {
                 navigator.geolocation.getCurrentPosition(displayPos, reqRejected);
@@ -51,8 +48,6 @@
         function submitAddr(){
             var addr = document.getElementById("input").value;
 
-
-
         }
     </script>
 
@@ -61,10 +56,12 @@
 <body onload="getLocation()">
     <p id = "errormsg"></p>
     <div id = "addressinput"></div>
-    <form action="http://localhost:5000/JoinRoom.html" method="POST" id = 'form'>
-            <input type="text" name="name" id='name'><br>
-            <input type="text" name="xcoord" id='xcoord'><br>
-            <input type="text" name="ycoord" id='ycoord'><br>
+    <form action="http://localhost:5000/Result.html" method="POST" id = 'form'>
+            Your Name: <input type="text" name="name" id='name'><br>
+            X Coordinate: <input type="text" name="xcoord" id='xcoord'><br>
+            Y Coordinate: <input type="text" name="ycoord" id='ycoord'><br>
+            Room Code: <input type="text" name="roomcode" id='roomcode'><br>
+            IP Address: <input type="text" name="ip_address" id='ip_address'><br>
             <input type="submit" value="Submit">
         </form>
 

@@ -23,7 +23,42 @@ def main_page():
 
 @app.route("/joinroom")
 def joinroom():
-    return render_template('joinform.html')
+    name = request.form.get('name')
+    lon = request.form.get('xcoord', type=int)
+    lat = request.form.get('ycoord', type=int)
+    code = request.form.get('roomcode')
+    ip_address = request.form.get('ip_address')
+    current_users = rooms.find_one({ 'code':code}, {'_id': 0, 'name': 0, 'users': 1, 'meeting_loc': 0})
+    for i in range(len(current_users)):
+        if current_users[i]['ip_address'] == ip_address:
+            current_users[i] = { "ip": ip_address,
+                    "name": name,
+                    "x": lat,
+                    "y": lon
+                    }
+        else:
+            current_users.append({ "ip": ip_address,
+                    "name": name,
+                    "x": lat,
+                    "y": lon
+                    })
+    
+    rooms.update_one({"code":code},{ "$set":{"users": current_users}})
+    current_users = rooms.find_one({ 'code':code}, {'_id': 0, 'name': 0, 'users': 1, 'meeting_loc': 0})
+    coords = []
+    for i in range(current_users):
+        coords.append((current_users[i]['x'],current_users[i]['y']))
+    meeting_location = aggregation.currentlocation.get_midpoint(coords)
+    meeting_location_x = meeting_location[0]
+    meeting_location_y = meeting_location[1]
+    meeting_building = aggregation.currentlocation.get_closest_building(meeting_location)
+    rooms.update_one({"code":code},{ "$set":{"meeting_loc": {"name": meeting_building, "x": meeting_location_x, "y": meeting_location_y}}})
+    
+    return render_template('result.html')
+
+# @app.route("/joinform.html", methods=['PUT'])
+# def joinform():
+#     return render_template('result.html')
     
 @app.route("/createroom", methods=['PUT'])
 def createroom():
@@ -47,7 +82,12 @@ def createroom():
     )
     return render_template('CreateRoom.html')
 
+@app.route("/createform", methods=['PUT'])
+def createform():
+    return render_template('Result.html')
 
 @app.route("/results/<code>")
 def output_data(code):
 	return rooms.find({"code": code})
+
+#test
