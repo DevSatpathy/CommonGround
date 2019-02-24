@@ -29,10 +29,11 @@ h1 {
     text-align: center;
 }
 
-.paragraph {
+.user-list {
     width: 200px;
     float: left;
-    margin-right: 5px;
+    margin-left: 10px;
+    margin-right: 10px;
     border: 5px solid black;
 }
 
