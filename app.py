@@ -2,7 +2,7 @@ from flask import Flask, render_template
 from flask import request
 import pymongo
 from pymongo import MongoClient
-from backend.aggregation.locationfinder import *
+from .backend.aggregation.locationfinder import *
 app = Flask(__name__)
 #app._static_folder = './templates'
 
