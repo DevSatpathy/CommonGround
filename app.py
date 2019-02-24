@@ -19,7 +19,7 @@ rooms = db.rooms
 def main_page():
 	return render_template('MainPage.html')
 
-@app.route("/JoinRoom.html", methods=['POST'])
+@app.route("/joinroom", methods=['POST'])
 def joinroom():
     name = request.args.get('name')
     lon = request.args.get('longitude', type=int)
@@ -51,7 +51,7 @@ def joinroom():
     meeting_location_y = meeting_location[1]
     meeting_building = get_closest_building(meeting_location_x, meeting_location_y)
     rooms.update_one({"code":code},{ "$set":{"meeting_loc": {"name": meeting_building, "x": meeting_location_x, "y": meeting_location_y}}})
-    return render_template('Result.html')
+    return render_template('JoinRoom.html')
     
 @app.route("/createroom", methods=['PUT'])
 def createroom():
