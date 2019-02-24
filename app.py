@@ -2,7 +2,7 @@ from flask import Flask, render_template
 from flask import request
 import pymongo
 from pymongo import MongoClient
-from .backend.aggregation.locationfinder import *
+from .backend.aggregation.closestlocation import get_midpoint, get_closest_building
 app = Flask(__name__)
 #app._static_folder = './templates'
 
@@ -46,10 +46,10 @@ def joinroom():
     coords = []
     for i in range(current_users):
         coords.append((current_users[i]['x'],current_users[i]['y']))
-    meeting_location = aggregation.currentlocation.get_midpoint(coords)
+    meeting_location = get_midpoint(coords)
     meeting_location_x = meeting_location[0]
     meeting_location_y = meeting_location[1]
-    meeting_building = aggregation.currentlocation.get_closest_building(meeting_location)
+    meeting_building = get_closest_building(meeting_location_x, meeting_location_y)
     rooms.update_one({"code":code},{ "$set":{"meeting_loc": {"name": meeting_building, "x": meeting_location_x, "y": meeting_location_y}}})
     
 @app.route("/createroom", methods=['PUT'])
