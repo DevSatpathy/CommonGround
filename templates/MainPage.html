@@ -8,13 +8,15 @@
             <meta charset="utf-8">
             <link rel="stylesheet" type="text/css" href="../frontend/static/favicon.ico">
             <link rel="stylesheet" type="text/css" href="../frontend/static/style.css">
-        <!-- </head> -->
-        <!-- <head> -->
+   
             <link rel="stylesheet" href="https://unpkg.com/leaflet@1.4.0/dist/leaflet.css" integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA==" crossorigin=""/>
             <script src="https://unpkg.com/leaflet@1.4.0/dist/leaflet.js" integrity="sha512-QVftwZFqvtRNi0ZyCtsznlKSWOStnDORoefr1enyq5mVL4tmKB3S/EnC3rRJcxCPavG10IcrVGSmPh6Qw5lwrg==" crossorigin=""></script>
-            <title>University Map</title>
-            <meta name="viewport" content="initial-scale=1.0">
-            <meta charset="utf-8">
+
+            <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+            <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+
+
         </head>
         <body id = "overall" style="border-style: dashed">
             <div id = "sitenameholder">
@@ -23,32 +25,19 @@
     
             <div>
                 <p>Need to find a place to meet? Get in a virtual room with all the people you want to meet, send your location, and our algorithm will determine the best place
-                   to meet.
+                   to meet. If you would like to create a room, press the button below.
                 </p>
     
-                <div id = "button-div">
-                    <button id = "create-room-btn", class="main-button", onclick="myFunction()">Create Room</button>
+                <button type="button" class="btn" class = "create-room-btn", class="main-button", onclick="myFunction()">Create Room</button>
     
-                    <button id = "join-room-btn", class="main-button">Join Room</button>
-    
-                    <!-- <script>
-                            function myFunction(roomcode) {
-                              var txt;
-                              var name = prompt("Please enter your name:");
-                              var address = prompt("Please enter your address:");
-                              var roomCodeText;
-                              if (roomcode == null || roomcode == "") {
-                                roomCodeText = prompt("Please enter your address:");
-                              } else {
-                                roomCodeText = prompt("Please enter your address:", roomcode);
-                              }
-                            }
-                    </script> -->
-                </div>
+                <p>Or else, you could enter a room your group member already made.</p>
+
+
+                <button type="button" class="btn" class = "join-room-btn", class="main-button">Join Room</button>
             </div>
             </div>
 
-            
+
             <div id="googleMap"></div>
 
         <script>
