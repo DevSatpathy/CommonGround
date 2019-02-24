@@ -21,11 +21,8 @@ var x_coord = parseFloat(user.x);
 var y_coord = parseFloat(user.y);
 L.marker([x_coord, y_coord]).addTo(uni)
     .bindPopup("Meeting Placeholder").openPopup();
-L.marker([x, y]).addTo(uni)
+L.marker("{{xpos}}", "{{ypos}}").addTo(uni)
   .bindPopup("Best place to meet");
-
-  // Users sample user list variable
-  var user = {x:"40.1201", y:"-88.2090", name:"Ben John"};
   
  for (var i = 0; i < user.length; i++) { 
    L.marker([user.x, user.y]).addTo(uni)
