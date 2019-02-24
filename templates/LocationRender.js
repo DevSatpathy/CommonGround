@@ -2,6 +2,7 @@ var latitude = document.getElementById("latitude");
 
 var longitude = document.getElementById("longitude");
 
+
 function getLocation() {
     if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(displayPos, reqRejected);
@@ -12,12 +13,14 @@ function getLocation() {
 }
 
 function displayPos(position) {
-    latitude.innerHTML = "Your current latitude is: " + position.coords.latitude;
-    longitude.innerHTML = "Your current longitude is: " + position.coords.longitude;
-    x_user = position.coords.latitude;
-    y_user = position.coords.longitude;
-    document.getElementById('xcoord').value = position.coords.latitude;
-    document.getElementById('ycoord').value = position.coords.longitude;
+    var rounded_latitude = Math.floor(position.coords.latitude * 10000) / 10000;
+    var rounded_longitude = Math.floor(position.coords.longitude * 10000) / 10000;
+    latitude.innerHTML = "Your current latitude is: " + rounded_latitude
+    longitude.innerHTML = "Your current longitude is: " + rounded_longitude;
+    x_user = rounded_latitude;
+    y_user = rounded_longitude;
+    document.getElementById('xcoord').value = rounded_latitude;
+    document.getElementById('ycoord').value = rounded_longitude;
     // document.getElementById('form').submit();
 }
 
