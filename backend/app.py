@@ -50,6 +50,17 @@ def joinroom():
 def createroom():
     name = request.args.get('name')
     ip_address = request.args.get('ip_address')
+	x_pos = request.args.get('x')
+	y_pos = request.args.get('y')
+	rooms.insertOne(
+		{"name": 3,
+		"code": 3,
+		"users": [3],
+		"meeting_location": {
+			"name": 3,
+			"x": 3,
+			"y": 3}})
+
     
 @app.route("/results/<code>")
 def output_data(code):
