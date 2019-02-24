@@ -2,7 +2,9 @@ from flask import Flask, render_template
 from flask import request
 import pymongo
 from pymongo import MongoClient
-from .backend.aggregation.closestlocation import get_midpoint, get_closest_building
+from .backend.aggregation.closestlocation import get_midpoint, get_closest_building, get_random_code
+import json
+
 app = Flask(__name__)
 #app._static_folder = './templates'
 
@@ -51,23 +53,30 @@ def joinroom():
     meeting_location_y = meeting_location[1]
     meeting_building = get_closest_building(meeting_location_x, meeting_location_y)
     rooms.update_one({"code":code},{ "$set":{"meeting_loc": {"name": meeting_building, "x": meeting_location_x, "y": meeting_location_y}}})
-    return render_template('JoinRoom.html')
+    #return render_template('Result.html')
+    with open('users.json', 'w') as outfile:  
+        json.dump(data, outfile)
+    curr = rooms.find_one({'code': code})
+    return curr
     
 @app.route("/createroom", methods=['PUT'])
 def createroom():
-	name = request.args.get('name')
-	room_name = request.args.get('room_name')
-	ip_address = request.args.get('ip_address')
-	x_pos = request.args.get('x')
-	y_pos = request.args.get('y')
-	rooms.insertOne(
-		{"name": room_name,
-		"code": 3,
-		"users": [{"name": name, "x": x_pos, "y": y_pos, "ip": ip_address}],
-		"meeting_location": {
-			"name": 3,
-			"x": 3,
-			"y": 3}
+    name = request.args.get('name')
+    room_name = request.args.get('room_name')
+    ip_address = request.args.get('ip_address')
+    x_pos = request.args.get('x')
+    y_pos = request.args.get('y')
+    room_code = get_random_code()
+    rooms.insertOne(
+        {
+            "name": room_name,
+            "code": room_code,
+            "users": [{"name": name, "x": x_pos, "y": y_pos, "ip": ip_address}],
+            "meeting_location": {
+                "name": 3,
+                "x": 3,
+                "y": 3
+            }
         }
     )
     return render_template('CreateRoom.html')
