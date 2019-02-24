@@ -96,7 +96,8 @@ def createroom():
 @app.route("/results/<code>")
 def results(code):
 	# return rooms.find({"code": code})
-    data = rooms.find_one({'code': code})
+    data = rooms.find({'code': code})
+    dat = str(data)
     with open('users.json', 'w') as outfile:  
-        json.dump(data, outfile)
+        json.dump(dat, outfile)
     return render_template('Result.html')
