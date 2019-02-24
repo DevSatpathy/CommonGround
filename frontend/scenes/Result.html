@@ -17,6 +17,12 @@
         margin: 0;
         padding: 0;
       } */
+      body {
+      border-style: dashed;
+      border-width: 3px;
+      border-left-width: 3px;
+      border-right-width: 3px;
+      }
       h2 {
       background-color: #F1F1F1;
       text-align: center;
@@ -40,13 +46,21 @@
       padding: 8px 0;
       }
       .table {
-      border-style: dashed;
+      border-style: solid;
       border-width: 3px;
-      border-left-width: 10px;
-      border-right-width: 10px;
-      border-color: red;
+      border-left-width: 3px;
+      border-right-width: 3px;
+      border-color: black;
       }
       </style>
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+      <script>
+      $(document).ready(function(){
+        $("#btn2").click(function(){
+          $("ol").append("<li>NAME</li>");
+        });
+      });
+      </script>
   </head>
   <body BGCOLOR="FFFFFF">
       <div id = "roompage">
@@ -54,17 +68,8 @@
       </div>
       <div class="paragraph">
         <h2>Users:</h2>
-        <table class="table">
-            <tr>
-              <td>Jill</td>
-            </tr>
-            <tr>
-              <td>Eve</td>
-            </tr>
-            <tr>
-              <td>John</td>
-            </tr>
-          </table>
+        <ol></ol>
+        <button id="btn2">New player added</button>
       </div>
       <div id="mapid" style="width: 800px; height: 400px;"></div>
       <script>
