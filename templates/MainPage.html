@@ -50,10 +50,15 @@
             </div>
      
             <div style="text-align:center">
-                <a href = "CreateRoom.html"><button type="button" class="btn">Create Room</button></a>
+                <a href = "CreateRoom.html"><button type="button" class="btn" onclick = getRoomCode()>Create Room</button></a>
+                <script>
+                    function getRoomCode() {
+                        var roomcode = "{{code}}"
+                        alert("Your roomcode is " + roomcode);
+                    }
+                </script>
                 <a href = "JoinRoom.html"><button type="button" class="btn">Join Room</button></a>
             </div>
-
             <div id="googleMap" style="width:100%;height:400px;"></div>
 
         <script>

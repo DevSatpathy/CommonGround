@@ -7,7 +7,7 @@
     <title>Page Title</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
-    <p id="demo"></p>
+    <p>"{{code}}"></p>
 
     <script>
         var x = document.getElementById("demo");
@@ -62,10 +62,10 @@
     <p id = "errormsg"></p>
     <div id = "addressinput"></div>
     <form action="http://localhost:5000/createroom" method="POST" id = 'form'>
-            Your name: <input type="text" name="name" id='name'><br>
-            Room name: <input type="text" name="roomname" id='roomname'><br>
-            Your latitude: <input type="text" name="xcoord" id='xcoord'><br>
-            Your longitude: <input type="text" name="ycoord" id='ycoord'><br>
+            <input type="text" name="name" id='name'><br>
+            <input type="text" name="roomname" id='roomname'><br>
+            <input type="text" name="xcoord" id='xcoord'><br>
+            <input type="text" name="ycoord" id='ycoord'><br>
             <input type="submit" value="Submit">
         </form>
 
