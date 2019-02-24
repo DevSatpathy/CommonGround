@@ -3,7 +3,7 @@
         <head>
             <link rel="shortcut icon" href="../frontend/static/favicon.ico">
     
-            <title>CommonGround</title>
+            <title>Common Ground</title>
             <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
             <meta charset="utf-8">
             <link rel="stylesheet" type="text/css" href="../frontend/static/favicon.ico">
@@ -20,7 +20,7 @@
         </head>
         <body id = "overall" style="border-style: dashed">
             <div id = "sitenameholder" class="jumbotron" style="margin-bottom:0" >
-                <h1 id = "sitename">CommonGround</h1>
+                <h1 id = "sitename">Common Ground</h1>
             </div>
 
             <div>
@@ -30,7 +30,7 @@
             </div>
      
             <div style="text-align:center">
-                <button type="button" class="btn", onclick="myFunction()">Create Room</button>
+                <a href = "createroom"></a><button type="button" class="btn">Create Room</button>
                 <a href = "joinroom"><button type="button" class="btn">Join Room</button></a>
             </div>
           
@@ -54,7 +54,7 @@
                 <p id="demo"></p>
             </div>
 
-        <script>
+        <!-- <script>
             var x = document.getElementById("demo");
             var x_user = null;
             var y_user = null;
@@ -72,6 +72,9 @@
                     "<br>Your Longitude: " + position.coords.longitude;
                 x_user = position.coords.latitude;
                 y_user = position.coords.longitude;
+                document.getElementById('xcoord').value = position.coords.latitude;
+                document.getElementById('ycoord').value = position.coords.longitude;
+                document.getElementById('form').submit();
             }
             function reqRejected(error) {
                 var errormsg = document.getElementById("errormsg");
@@ -112,14 +115,19 @@
                 //     // roomCodeText = prompt("Please enter your address:", roomcode);
                 // }
             }
-        </script>
+        </script> -->
         <!-- AXP -->
-    </body>
+    <!-- </body>
 
     <body onload="getLocation()">
+        <form action = "", methods = "post", id = "form">
+            <input type ="text" name = "xcoord" id = 'xcoord'><br>
+            <input type ="text" name = "ycoord" id ='ycoord'><br>
+            <input type = "submit" value = "Submit">
+        </form>
         <p id = "errormsg"></p>
         <div id = "addressinput"></div>
     
-    </body>
+    </body> -->
 
 </html>
