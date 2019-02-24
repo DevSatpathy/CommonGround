@@ -34,23 +34,28 @@ function reqRejected(error, button) {
     // button.onclick = "submitAddr()"
     // addressinput.appendChild(box);
     // addressinput.appendChild(button);
-    var errormsg = document.getElementById("errormsg");
-    
+
     switch (error.code) {
         case error.PERMISSION_DENIED:
-            errormsg.innerHTML = "User denied the request for Geolocation."
+            alert("User denied the request for Geolocation. You will be redirected to the main page.")
+            window.location.assign("MainPage.html")
             break;
         case error.POSITION_UNAVAILABLE:
+            alert("Location information is unavailable. You will be redirected to the main page.")
             errormsg.innerHTML = "Location information is unavailable."
+            window.location.assign("MainPage.html")
             break;
         case error.TIMEOUT:
-            errormsg.innerHTML = "The request to get user location timed out."
+            alert("The request to get user location timed out. You will be redirected to the main page.")
+            window.location.assign("MainPage.html")
             break;
         case error.UNKNOWN_ERROR:
-            errormsg.innerHTML = "An unknown error occurred."
+            errormsg.innerHTML = "An unknown error occurred. You will be redirected to the main page. ";
+            window.location.assign("MainPage.html");
             break;
     }
 }
+
 
 function submitAddr(){
     var addr = document.getElementById("input").value;
