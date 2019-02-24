@@ -1,3 +1,8 @@
 .form-control {
     width: 100 px;
 }
+
+form { 
+    margin: 0 auto; 
+    width:250px;
+}
