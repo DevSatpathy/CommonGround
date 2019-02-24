@@ -21,9 +21,43 @@ rooms = db.rooms
 def main_page():
 	return render_template('MainPage.html')
 
-@app.route("/joinroom")
+@app.route("/joinroom", methods = ['POST', 'GET'])
 def joinroom():
-    return render_template('joinform.html')
+    if request.method == 'POST':
+        result  = request.form
+        name = result['name']
+        lon = result['longitude']
+        lat = result['latitude']
+        code = result['code']
+        ip_address = 0
+        
+        current_users = rooms.find_one({ 'code':code}, {'_id': 0, 'name': 0, 'users': 1, 'meeting_loc': 0})
+        for i in range(len(current_users)):
+            if current_users[i]['ip_address'] == ip_address:
+                current_users[i] = { "ip": ip_address,
+                        "name": name,
+                        "x": lat,
+                        "y": lon
+                        }
+            else:
+                current_users.append({ "ip": ip_address,
+                        "name": name,
+                        "x": lat,
+                        "y": lon
+                        })
+        
+        rooms.update_one({"code":code},{ "$set":{"users": current_users}})
+        current_users = rooms.find_one({ 'code':code}, {'_id': 0, 'name': 0, 'users': 1, 'meeting_loc': 0})
+        coords = []
+        for i in range(current_users):
+            coords.append((current_users[i]['x'],current_users[i]['y']))
+        meeting_location = aggregation.currentlocation.get_midpoint(coords)
+        meeting_location_x = meeting_location[0]
+        meeting_location_y = meeting_location[1]
+        meeting_building = aggregation.currentlocation.get_closest_building(meeting_location)
+        rooms.update_one({"code":code},{ "$set":{"meeting_loc": {"name": meeting_building, "x": meeting_location_x, "y": meeting_location_y}}})
+
+        return render_template('joinform.html')
     
 @app.route("/createroom", methods=['PUT'])
 def createroom():
@@ -50,4 +84,8 @@ def createroom():
 
 @app.route("/results/<code>")
 def output_data(code):
-	return rooms.find({"code": code})
+	# return rooms.find({"code": code})
+    with open('users.json', 'w') as outfile:  
+        json.dump(data, outfile)
+    curr = rooms.find_one({'code': code})
+    return curr
