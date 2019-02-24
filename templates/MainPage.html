@@ -33,9 +33,8 @@
                 <button type="button" class="btn", onclick="myFunction()">Create Room</button>
                 <a href = "JoinRoom.html"><button type="button" class="btn">Join Room</button></a>
             </div>
-          
 
-            <div id="googleMap" style="width:100%;height:400px;"></div>
+            <div id="googleMap"></div>
 
         <script>
         /* Var x and Var y serve as place holders until json works */  
@@ -48,72 +47,6 @@
 		    id: 'mapbox.streets'
 	      }).addTo(standardMap);
         </script>
-
-            <div>
-                <!-- AXP -->
-                <p id="demo"></p>
-            </div>
-
-        <script>
-            var x = document.getElementById("demo");
-            var x_user = null;
-            var y_user = null;
-
-            function getLocation() {
-                if (navigator.geolocation) {
-                    navigator.geolocation.getCurrentPosition(displayPos, reqRejected);
-                } else {
-                    x.innerHTML = "Geolocation is not supported by this browser/";
-                }
-            }
-
-            function displayPos(position) {
-                x.innerHTML = "Your Latitude: " + position.coords.latitude +
-                    "<br>Your Longitude: " + position.coords.longitude;
-                x_user = position.coords.latitude;
-                y_user = position.coords.longitude;
-            }
-            function reqRejected(error) {
-                var errormsg = document.getElementById("errormsg");
-
-                switch (error.code) {
-                    case error.PERMISSION_DENIED:
-                        errormsg.innerHTML = "This application requires your location, please refresh to continue and accept."
-                        break;
-                    case error.POSITION_UNAVAILABLE:
-                        errormsg.innerHTML = "Location information is unavailable."
-                        break;
-                    case error.TIMEOUT:
-                        errormsg.innerHTML = "The request to get user location timed out."
-                        break;
-                    case error.UNKNOWN_ERROR:
-                        errormsg.innerHTML = "An unknown error occurred."
-                        break;
-                }
-            }
-            function submitAddr(){
-                var addr = document.getElementById("input").value;
-            }
-            function myFunction(roomcode) {
-                var txt;
-                var name = prompt("Please enter your name:");
-                var address;
-                if (x_user == null && y_user == null) {
-                    address = prompt("Please enter your address:");
-                } else {
-                    x.innerHTML = "Latitude: " + x_user +
-                    "<br>Longitude: " + y_user;
-                }
-                // var address = prompt("Please enter your address:");
-                // var roomCodeText;
-                // if ((roomcode == null || roomcode == "") && (x_user == null)) {
-                //     roomCodeText = prompt("Please enter your addressinside:");
-                // } else {
-                //     // roomCodeText = prompt("Please enter your address:", roomcode);
-                // }
-            }
-        </script>
-        <!-- AXP -->
     </body>
 
     <body onload="getLocation()">
