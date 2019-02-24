@@ -1,6 +1,6 @@
 import pandas as pd
 import math
-from currentlocation import *
+# from currentlocation import *
 
 df = pd.read_csv('backend/aggregation/data/location_gps.csv', sep =';', error_bad_lines=False)
 
