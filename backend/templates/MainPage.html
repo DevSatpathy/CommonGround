@@ -1,42 +1,53 @@
 <!doctype html>
 <html>
         <head>
-            <link rel="shortcut icon" href="../frontend/static/favicon.ico">
+            <link rel="shortcut icon" href="../static/favicon.ico">
     
             <title>Common Ground</title>
             <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
             <meta charset="utf-8">
-            <link rel="stylesheet" type="text/css" href="../frontend/static/favicon.ico">
-            <link rel="stylesheet" type="text/css" href="../frontend/static/style.css">
-   
+            <link rel="stylesheet" type="text/css" href="../static/style.css">
+        </head>
+        <head>
             <link rel="stylesheet" href="https://unpkg.com/leaflet@1.4.0/dist/leaflet.css" integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA==" crossorigin=""/>
             <script src="https://unpkg.com/leaflet@1.4.0/dist/leaflet.js" integrity="sha512-QVftwZFqvtRNi0ZyCtsznlKSWOStnDORoefr1enyq5mVL4tmKB3S/EnC3rRJcxCPavG10IcrVGSmPh6Qw5lwrg==" crossorigin=""></script>
-
-            <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
-            <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-            <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
-
-
+            <title>University Map</title>
+            <meta name="viewport" content="initial-scale=1.0">
+            <meta charset="utf-8">
         </head>
         <body id = "overall" style="border-style: dashed">
-            <div id = "sitenameholder" class="jumbotron" style="margin-bottom:0" >
+            <div id = "sitenameholder">
                 <h1 id = "sitename">Common Ground</h1>
             </div>
-
+    
             <div>
                 <p>Need to find a place to meet? Get in a virtual room with all the people you want to meet, send your location, and our algorithm will determine the best place
-                   to meet. If you would like to create a room, press the button below.
-                </p> 
+                   to meet.
+                </p>
+    
+                <div id = "button-div">
+                    <button id = "create-room-btn", class="main-button", onclick="myFunction()">Create Room</button>
+    
+                    <button id = "join-room-btn", class="main-button">Join Room</button>
+    
+                    <!-- <script>
+                            function myFunction(roomcode) {
+                              var txt;
+                              var name = prompt("Please enter your name:");
+                              var address = prompt("Please enter your address:");
+                              var roomCodeText;
+                              if (roomcode == null || roomcode == "") {
+                                roomCodeText = prompt("Please enter your address:");
+                              } else {
+                                roomCodeText = prompt("Please enter your address:", roomcode);
+                              }
+                            }
+                    </script> -->
+                </div>
+                <div id="googleMap" style="width:100%;height:400px;" >
+                </div>
             </div>
-     
-            <div style="text-align:center">
-                <button type="button" class="btn", onclick="myFunction()">Create Room</button>
-                <button type="button" class="btn">Join Room</button>
-            </div>
-          
-
-            <div id="googleMap" style="width:100%;height:400px;"></div>
-
+        </div>
         <script>
         /* Var x and Var y serve as place holders until json works */  
         var standardMap = L.map('googleMap').setView([40.1164, -88.2434], 13);
@@ -49,10 +60,8 @@
 	      }).addTo(standardMap);
         </script>
 
-            <div>
-                <!-- AXP -->
-                <p id="demo"></p>
-            </div>
+        <!-- AXP -->
+        <p id="demo"></p>
 
         <script>
             var x = document.getElementById("demo");
@@ -97,20 +106,13 @@
             function myFunction(roomcode) {
                 var txt;
                 var name = prompt("Please enter your name:");
-                var address;
-                if (x_user == null && y_user == null) {
-                    address = prompt("Please enter your address:");
+                var address = prompt("Please enter your address:");
+                var roomCodeText;
+                if ((roomcode == null || roomcode == "") && (x_user == null)) {
+                    roomCodeText = prompt("Please enter your addressinside:");
                 } else {
-                    x.innerHTML = "Latitude: " + x_user +
-                    "<br>Longitude: " + y_user;
+                    // roomCodeText = prompt("Please enter your address:", roomcode);
                 }
-                // var address = prompt("Please enter your address:");
-                // var roomCodeText;
-                // if ((roomcode == null || roomcode == "") && (x_user == null)) {
-                //     roomCodeText = prompt("Please enter your addressinside:");
-                // } else {
-                //     // roomCodeText = prompt("Please enter your address:", roomcode);
-                // }
             }
         </script>
         <!-- AXP -->

@@ -2,9 +2,9 @@ import pandas as pd
 import math
 from currentlocation import *
 
-df = pd.read_csv('data/location_gps.csv', sep =';', error_bad_lines=False)
+df = pd.read_csv('backend/aggregation/data/location_gps.csv', sep =';', error_bad_lines=False)
 
-d =  df.set_index('name').to_dict(orient = 'index')
+d =  df.set_index('name').to_dict(orient = 'series')
 
 def distance_from_user(name, user_x, user_y):
     data = d.get(name)
