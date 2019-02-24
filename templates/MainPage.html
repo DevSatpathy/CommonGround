@@ -19,21 +19,23 @@
 
         </head>
         <body id = "overall" style="border-style: dashed">
-            <div id = "sitenameholder">
+            <div id = "sitenameholder" class="jumbotron" style="margin-bottom:0" >
                 <h1 id = "sitename">Common Ground</h1>
             </div>
-    
 
-            <p>Need to find a place to meet? Get in a virtual room with all the people you want to meet, send your location, and our algorithm will determine the best place
-                to meet. If you would like to create a room, press the button below.
-            </p>
+            <div>
+                <p>Need to find a place to meet? Get in a virtual room with all the people you want to meet, send your location, and our algorithm will determine the best place
+                   to meet. If you would like to create a room, press the button below.
+                </p> 
+            </div>
      
             <div style="text-align:center">
                 <button type="button" class="btn", onclick="myFunction()">Create Room</button>
                 <button type="button" class="btn">Join Room</button>
             </div>
 
-            <div id="googleMap"></div
+            <div id="googleMap"></div>
+
         <script>
         /* Var x and Var y serve as place holders until json works */  
         var standardMap = L.map('googleMap').setView([40.1164, -88.2434], 13);
@@ -46,8 +48,10 @@
 	      }).addTo(standardMap);
         </script>
 
-        <!-- AXP -->
-        <p id="demo"></p>
+            <div>
+                <!-- AXP -->
+                <p id="demo"></p>
+            </div>
 
         <script>
             var x = document.getElementById("demo");

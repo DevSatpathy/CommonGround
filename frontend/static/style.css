@@ -2,19 +2,22 @@
     font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
-#overall {
+body {
+    border: 5px;
     border-style: dashed;
     padding: 15px
 }
+
 
 #sitenameholder {
     display: block;
     margin-left: auto;
     margin-right: auto;
+    margin-bottom: 50px;
 }
 
 #sitename {
-    text-align: center
+    text-align: center;
 }
 
 #locationsender {
@@ -41,7 +44,19 @@
     width: 600px;
     height: 450px;
     display: block;
-    margin-left: auto;
-    margin-right: auto;
     margin-top: 10px;
+    margin-bottom: 10px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+#demo {
+    text-align: center
+}
+
+.jumbotron {
+    background-color:transparent !important; 
+    height: 140px;
+    padding-top: 10%;
+    padding-bottom: 20%;
 }
