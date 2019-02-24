@@ -1,4 +1,4 @@
-from flask import Flask
+from flask import Flask, render_template
 from flask import request
 import pymongo
 from pymongo import MongoClient
@@ -13,6 +13,10 @@ db = client.commonground
 
 # The collection that we will edit
 rooms = db.rooms
+
+@app.route('/')
+def main_page():
+	return render_template('MainPage.html')
 
 @app.route("/joinroom", methods=['POST'])
 def joinroom():
