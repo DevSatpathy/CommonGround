@@ -31,7 +31,9 @@
 }
 
 .main-button {
-    display: flex; justify-content: center;
+    display: flex;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 #googleMap {
