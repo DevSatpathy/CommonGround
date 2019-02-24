@@ -38,14 +38,13 @@ def joinroom():
         inside = False
 
         for i in range(len(rooms)) and not inside:
-            inside = True
 
             if rooms[i]['code'] is code:
                 for j in range(len(rooms[i]['users'])):
                     coords.append((rooms[i]['users'][j]['x'], rooms[i]['users'][j]['y']))
 
-                for i in range(len(rooms[i]['users'])):
                     if rooms[i]['users']['name'] is user['name']:
+                        inside = True
                         rooms[i]['users']['x'] = user['x']
                         rooms[i]['users']['y'] = user['y']
         
@@ -126,11 +125,7 @@ def createroom():
         room = {
                 "name": roomname,
                 "code": code,
-                "users": [{"name": name, "x": lat, "y": lon}],
-                "meeting_location": {
-                    "name": meeting_building[0],
-                    "x": meeting_building[1],
-                    "y": meeting_building[2]}}
+                "users": [{"name": name, "x": lat, "y": lon}]}
 
         rooms.append(room)
                                                                                               
