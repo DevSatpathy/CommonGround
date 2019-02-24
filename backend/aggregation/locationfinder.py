@@ -29,4 +29,4 @@ def generate_coordinates():
     print("Finished getting all gps coordinates...")
 
     location_gps.close()   
-generate_coordinates() 
+# generate_coordinates() 
