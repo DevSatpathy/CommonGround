@@ -1,12 +1,12 @@
 
 <html>
         <head>
-            <link rel="shortcut icon" href="../static/favicon.ico">
+            <link rel="shortcut icon" href="../frontend/static/favicon.ico">
     
             <title>Common Ground</title>
             <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
             <meta charset="utf-8">
-            <link rel="stylesheet" type="text/css" href="../static/style.css">
+            <link rel="stylesheet" type="text/css" href="../frontend/static/favicon.ico">
         </head>
         <head>
             <link rel="stylesheet" href="https://unpkg.com/leaflet@1.4.0/dist/leaflet.css" integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA==" crossorigin=""/>
@@ -106,13 +106,20 @@
             function myFunction(roomcode) {
                 var txt;
                 var name = prompt("Please enter your name:");
-                var address = prompt("Please enter your address:");
-                var roomCodeText;
-                if ((roomcode == null || roomcode == "") && (x_user == null)) {
-                    roomCodeText = prompt("Please enter your addressinside:");
+                var address;
+                if (x_user == null && y_user == null) {
+                    address = prompt("Please enter your address:");
                 } else {
-                    // roomCodeText = prompt("Please enter your address:", roomcode);
+                    x.innerHTML = "Latitude: " + x_user +
+                    "<br>Longitude: " + y_user;
                 }
+                // var address = prompt("Please enter your address:");
+                // var roomCodeText;
+                // if ((roomcode == null || roomcode == "") && (x_user == null)) {
+                //     roomCodeText = prompt("Please enter your addressinside:");
+                // } else {
+                //     // roomCodeText = prompt("Please enter your address:", roomcode);
+                // }
             }
         </script>
         <!-- AXP -->
