@@ -11,7 +11,13 @@ L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=p
 
 L.marker([40.1101, -88.2290]).addTo(uni)
     .bindPopup("Meeting Placeholder").openPopup();
-L.marker([40.1201, -88.2090]).addTo(uni)
-  .bindPopup("Person Placeholder").openPopup();
 L.marker([x, y]).addTo(uni)
   .bindPopup("Best place to meet");
+
+  // Users sample user list variable
+  var user = {x:"40.1201", y:"-88.2090", name:"Ben John"};
+
+  for (var i = 0; i < cars.length; i++) { 
+    L.marker([user.x, user.y]).addTo(uni)
+    .bindPopup(user.name +  "is here").openPopup();
+  }
